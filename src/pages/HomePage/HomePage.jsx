@@ -1,33 +1,42 @@
-import { Container, MainLogo, StyledInput, StyledButton, StyledForm, Register } from "./style";
+import {
+  Container,
+  MainLogo,
+  StyledForm,
+  Register,
+  StyledButton,
+  StyledInput,
+} from "./style";
 import Logo from "../../assets/images/logo.svg";
-import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
-import apiAuth from "../../api/apiAuth";
+import { useContext, useState } from "react";
+import { UserContext } from "../../contexts/UserContext";
 import { ThreeDots } from "react-loader-spinner";
+import apiAuth from "../../api/apiAuth";
 
 function HomePage({ setToken }) {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
-  const { setUser } = useContext();
+  const { setUser } = useContext(UserContext);
 
   function handleForm(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  // function de login
-
+  // Função Login
   function handleLogin(e) {
     e.preventDefault();
 
+    // Adiciona efeito Loading
     setIsLoading(true);
 
-    apiAuth.login(form)
+    apiAuth
+      .login(form)
       .then((res) => {
         const { id, name, image, token } = res.data;
         setIsLoading(false);
         setUser({ id, name, image, token });
+        // Guarda dados usuario no no Local Storage (Persistencia Login)
         localStorage.setItem(
           "user",
           JSON.stringify({ id, name, image, token })
@@ -45,7 +54,7 @@ function HomePage({ setToken }) {
       <MainLogo src={Logo} />
       <StyledForm onSubmit={handleLogin}>
         <StyledInput
-          data-test="email-input" 
+          data-identifier="input-email"
           name="email"
           placeholder="email"
           type="email"
@@ -55,7 +64,7 @@ function HomePage({ setToken }) {
           onChange={handleForm}
         />
         <StyledInput
-          data-test="password-input"
+          data-identifier="input-password"
           name="password"
           placeholder="senha"
           type="password"
@@ -65,23 +74,21 @@ function HomePage({ setToken }) {
           onChange={handleForm}
         />
 
+        {/* Adiciona Efeito Loading */}
         <StyledButton
-          data-test="login-btn"
+          data-identifier="login-btn"
           type="submit"
           disabled={isLoading}
         >
           {isLoading ? (
-            <ThreeDots width={50} height={50} color="#fff" />
+            <ThreeDots width={50} height={50} color="#FFFFFF" />
           ) : (
             "Entrar"
           )}
         </StyledButton>
       </StyledForm>
 
-      <Register
-        data-test="signup-link"
-        to="/cadastro"
-      >
+      <Register to="/cadastro" data-identifier="sign-up-action">
         Não tem uma conta? Cadastre-se!
       </Register>
     </Container>
