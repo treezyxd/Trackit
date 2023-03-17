@@ -20,7 +20,7 @@ export default function Upside() {
   }
   return (
     <Container>
-      <Header>
+      <Header data-test="header">
         <StyledLink to="/hoje">Trackit</StyledLink>\
         {user.image === undefined ? (
           <img src={User} alt="" />

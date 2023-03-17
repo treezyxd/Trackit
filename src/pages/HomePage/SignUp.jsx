@@ -79,10 +79,10 @@ export default function Registration() {
           disabled={isLoading}
           value={form.image}
           onChange={handleForm}
-          data-test="signup-btn"
+          data-test="user-image-input"
         />
 
-        <StyledButton type="submit" disabled={isLoading}>
+        <StyledButton data-test="signup-btn" type="submit" disabled={isLoading}>
           {isLoading ? (
             <ThreeDots width={50} height={50} color="#fff" />
           ) : (
@@ -90,7 +90,7 @@ export default function Registration() {
           )}
         </StyledButton>
       </StyledForm>
-      <Register to="/" data-identifier="back-to-login-action" >
+      <Register data-test="login-link" to="/" data-identifier="back-to-login-action" >
         Já tem uma conta? Faça Login!
       </Register>
     </Container>

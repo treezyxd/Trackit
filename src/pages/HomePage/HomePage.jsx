@@ -54,7 +54,6 @@ function HomePage({ setToken }) {
       <MainLogo src={Logo} />
       <StyledForm onSubmit={handleLogin}>
         <StyledInput
-          data-identifier="input-email"
           name="email"
           placeholder="email"
           type="email"
@@ -62,9 +61,9 @@ function HomePage({ setToken }) {
           disabled={isLoading}
           value={form.email}
           onChange={handleForm}
+          data-test="email-input"
         />
         <StyledInput
-          data-identifier="input-password"
           name="password"
           placeholder="senha"
           type="password"
@@ -72,6 +71,7 @@ function HomePage({ setToken }) {
           disabled={isLoading}
           value={form.password}
           onChange={handleForm}
+          data-test="password-input"
         />
 
         {/* Adiciona Efeito Loading */}

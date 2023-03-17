@@ -26,10 +26,10 @@ function HabitCard({ id, name, days, getHabitsList }) {
   }
 
   return (
-    <Container>
-      <Title>{name}</Title>
+    <Container data-test="habit-container">
+      <Title data-test="habit-name">{name}</Title>
       <WeekDayButtons selectedDays={days} />
-      <img src={trashIcon} onClick={handleDelete} alt="" />
+      <img data-test="habit-delete-btn" src={trashIcon} onClick={handleDelete} alt="" />
     </Container>
   );
 }
