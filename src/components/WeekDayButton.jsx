@@ -19,6 +19,7 @@ export default function WeekDayButtons({
     <Days disabled={isLoading}>
       {weekDays.map((weekDay) => (
         <StyledDay
+          data-test="habit-day"
           key={weekDay.id}
           isSelected={selectDays.includes(weekDay.id)}
           onClick={() => handleDay(weekDay.id)}

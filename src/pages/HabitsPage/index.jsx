@@ -6,7 +6,7 @@ import { CreateHabitContainer, Button } from "./style.js";
 import StyledTitle from "../../components/StyledTitle";
 import StyledSubtitle from "../../components/StyledSubtitle";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../contexts/USerContext";
+import { UserContext } from "../../contexts/UserContext";
 import { ThreeDots } from "react-loader-spinner";
 import { ProgressContext } from "../../contexts/ProgressContext";
 import apiToday from "../../api/apiToday";

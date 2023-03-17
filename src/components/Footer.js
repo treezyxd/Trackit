@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { MainColor, BackgroundWhite } from "../constants/color";
 import { Link } from "react-router-dom";
-import { CircularProgressBar, buildStyles } from "react-circular-progressbar";
+import { CircularProgressbar as CircularProgressBar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useContext } from "react";
 import { ProgressContext } from "../contexts/ProgressContext";

@@ -1,5 +1,5 @@
 import Header from "./Header";
-import Menu from "./Menu";
+import Menu from "../components/Footer";
 
 import styled from "styled-components";
 
