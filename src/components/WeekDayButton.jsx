@@ -1,4 +1,4 @@
-import weekDays from "../constants/weekDay";
+import weekDays from "../constants/weekDays";
 import styled from "styled-components";
 
 export default function WeekDayButtons({
